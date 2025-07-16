@@ -13,7 +13,11 @@
     "dev:web": "turbo -F web dev",
     "dev:server": "turbo -F server dev"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@prisma/client": "^6.12.0",
+    "axios": "^1.10.0",
+    "prisma": "^6.12.0"
+  },
   "devDependencies": {
     "turbo": "^2.5.4"
   },

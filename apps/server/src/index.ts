@@ -1,10 +1,7 @@
 import "dotenv/config";
 import Fastify from "fastify";
 import fastifyCors from "@fastify/cors";
-
-
-
-
+import { paymentsRoutes } from "./routers/payments";
 
 const baseCorsConfig = {
   origin: process.env.CORS_ORIGIN || "",
@@ -23,12 +20,10 @@ const fastify = Fastify({
 });
 
 fastify.register(fastifyCors, baseCorsConfig);
+fastify.register(paymentsRoutes);
 
-
-
-
-fastify.get('/', async () => {
-  return 'OK'
+fastify.get('/ping', async () => {
+  return 'pong'
 })
 
 fastify.listen({ port: 3000 }, (err) => {
