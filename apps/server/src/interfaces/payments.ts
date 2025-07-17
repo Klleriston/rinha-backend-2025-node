@@ -1,3 +1,5 @@
+import type { Semaphore } from "async-mutex";
+
 export interface PaymentSummaryDetail {
   totalRequests: number;
   totalAmount: number;
@@ -18,3 +20,29 @@ export interface PaymentRequestBody {
   amount: number;
 }
 
+export interface Processor {
+  name: string;
+  url?: string;
+  healthUrl?: string;
+  activeConnections: number;
+  healthy?: boolean;
+}
+export interface ProcessorConfig {
+    name: string;
+    url: string;
+    healthUrl: string;
+    activeConnections: number;
+    pendingPromises: number;
+    healthy: boolean;
+    semaphore: Semaphore;
+}
+
+export interface ProcessorConfig {
+    name: string;
+    url: string;
+    healthUrl: string;
+    activeConnections: number;
+    pendingPromises: number;
+    healthy: boolean;
+    semaphore: Semaphore;
+}
